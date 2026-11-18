@@ -1,0 +1,28 @@
+{
+  "name": "dmoney-api-integration-testing",
+  "version": "1.0.0",
+  "description": "Automated Financial Workflow Integration Testing for dMoney API using Mocha, Chai, Axios, and Dotenv",
+  "main": "test/dmoney.spec.js",
+  "scripts": {
+    "test": "mocha --timeout 30000 test/dmoney.spec.js"
+  },
+  "keywords": [
+    "dmoney",
+    "api-testing",
+    "integration-testing",
+    "mocha",
+    "chai",
+    "axios",
+    "fintech",
+    "sqa",
+    "sdet"
+  ],
+  "author": "Torab Arnob",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.21.1",
+    "chai": "^4.3.10",
+    "dotenv": "^18.0.10",
+    "mocha": "^12.0.3"
+  }
+}
