@@ -51,7 +51,7 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
       password: "1234",
     });
 
-    console.log("Admin Login Status:", response.status);
+    console.log("Admin Login Response:", response.data);
     expect(response.status).to.equal(200);
     expect(response.data).to.have.property("token");
     expect(response.data.message).to.equal("Login successful");
@@ -80,7 +80,7 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
       getAdminHeaders()
     );
 
-    console.log(`Created Customer 1: ${customer1Email} (${customer1Phone})`);
+    console.log("Customer 1 Created Response:", response.data);
     expect(response.status).to.equal(201);
     expect(response.data.message).to.equal("User created");
     expect(response.data).to.have.property("user");
@@ -109,7 +109,7 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
       getAdminHeaders()
     );
 
-    console.log(`Created Customer 2: ${customer2Email} (${customer2Phone})`);
+    console.log("Customer 2 Created Response:", response.data);
     expect(response.status).to.equal(201);
     expect(response.data.message).to.equal("User created");
     expect(response.data).to.have.property("user");
@@ -138,7 +138,7 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
       getAdminHeaders()
     );
 
-    console.log(`Created Agent: ${agentEmail} (${agentPhone})`);
+    console.log("Agent Created Response:", response.data);
     expect(response.status).to.equal(201);
     expect(response.data.message).to.equal("User created");
     expect(response.data).to.have.property("user");
@@ -167,7 +167,7 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
       getAdminHeaders()
     );
 
-    console.log(`Created Merchant: ${merchantEmail} (${merchantPhone})`);
+    console.log("Merchant Created Response:", response.data);
     expect(response.status).to.equal(201);
     expect(response.data.message).to.equal("User created");
     expect(response.data).to.have.property("user");
@@ -185,7 +185,7 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
       getAdminHeaders()
     );
 
-    console.log("Customer 1 Activation Status:", response.status);
+    console.log("Customer 1 Activation Response:", response.data);
     expect(response.status).to.equal(200);
     expect(response.data.message).to.equal("User updated successfully");
   });
@@ -197,7 +197,7 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
       getAdminHeaders()
     );
 
-    console.log("Customer 2 Activation Status:", response.status);
+    console.log("Customer 2 Activation Response:", response.data);
     expect(response.status).to.equal(200);
     expect(response.data.message).to.equal("User updated successfully");
   });
@@ -209,7 +209,7 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
       getAdminHeaders()
     );
 
-    console.log("Agent Activation Status:", response.status);
+    console.log("Agent Activation Response:", response.data);
     expect(response.status).to.equal(200);
     expect(response.data.message).to.equal("User updated successfully");
   });
@@ -221,7 +221,7 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
       getAdminHeaders()
     );
 
-    console.log("Merchant Activation Status:", response.status);
+    console.log("Merchant Activation Response:", response.data);
     expect(response.status).to.equal(200);
     expect(response.data.message).to.equal("User updated successfully");
   });
@@ -234,7 +234,7 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
       password: "1234",
     });
 
-    console.log("System Login Status:", response.status);
+    console.log("System Login Response:", response.data);
     expect(response.status).to.equal(200);
     expect(response.data).to.have.property("token");
     expect(response.data.message).to.equal("Login successful");
@@ -287,7 +287,7 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
       }
     );
 
-    console.log("Agent Search Status:", response.status);
+    console.log("Agent Search Response:", response.data);
     expect(response.status).to.equal(200);
     expect(response.data).to.have.property("user");
     expect(response.data.user).to.have.property("otp");
@@ -301,7 +301,7 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
       otp: agentOtp,
     });
 
-    console.log("Agent OTP Verification Status:", response.status);
+    console.log("Agent Verify OTP Response:", response.data);
     expect(response.status).to.equal(200);
     expect(response.data).to.have.property("token");
     expect(response.data.message).to.equal("Login successful");
@@ -359,7 +359,7 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
       }
     );
 
-    console.log("Customer 1 Search Status:", response.status);
+    console.log("Customer 1 Search Response:", response.data);
     expect(response.status).to.equal(200);
     expect(response.data).to.have.property("user");
     expect(response.data.user).to.have.property("otp");
@@ -373,7 +373,7 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
       otp: customer1Otp,
     });
 
-    console.log("Customer 1 OTP Verification Status:", response.status);
+    console.log("Customer 1 Verify OTP Response:", response.data);
     expect(response.status).to.equal(200);
     expect(response.data).to.have.property("token");
     expect(response.data.message).to.equal("Login successful");
@@ -429,7 +429,7 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
       }
     );
 
-    console.log("Customer 2 Search Status:", response.status);
+    console.log("Customer 2 Search Response:", response.data);
     expect(response.status).to.equal(200);
     expect(response.data).to.have.property("user");
     expect(response.data.user).to.have.property("otp");
@@ -443,7 +443,7 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
       otp: customer2Otp,
     });
 
-    console.log("Customer 2 OTP Verification Status:", response.status);
+    console.log("Customer 2 Verify OTP Response:", response.data);
     expect(response.status).to.equal(200);
     expect(response.data).to.have.property("token");
     expect(response.data.message).to.equal("Login successful");
