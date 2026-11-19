@@ -204,7 +204,12 @@ cp .env.example .env
 Configure your `.env` variables:
 
 ```env
-BASE_URL=https://dmoney.roadtocareer.net
+# Localhost dMoney API Server (Default)
+BASE_URL=http://localhost:4000
+
+# Or Hosted Cloud API Server
+# BASE_URL=https://dmoney.roadtocareer.net
+
 PARTNER_KEY=ROADTOSDET
 ```
 

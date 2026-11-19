@@ -2,7 +2,7 @@ const { expect } = require("chai");
 const axios = require("axios");
 require("dotenv").config();
 
-const BASE_URL = process.env.BASE_URL || "https://dmoney.roadtocareer.net";
+const BASE_URL = process.env.BASE_URL || "http://localhost:4000";
 const PARTNER_KEY = process.env.PARTNER_KEY || "ROADTOSDET";
 
 describe("dMoney Financial Transaction Workflow - Integration Testing Suite", function () {
