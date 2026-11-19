@@ -276,9 +276,40 @@ npx mocha --timeout 30000 test/dmoney.spec.js
 
 ## 📷 Test Execution Evidence
 
-Below is the verified terminal execution report showing all 28 passing tests (positive workflows + negative edge cases) with status assertions and mathematical validations:
+All test executions were executed against the dMoney API, achieving a 100% pass rate across all 28 test cases. Below are the step-by-step terminal execution screenshots:
 
-![Test Execution Report](screenshots/test-execution.png)
+### 1. Complete Test Suite Overview (28 Passing Tests)
+![Complete Test Suite Overview](screenshots/test-execution.png)
+
+---
+
+### 2. Phase 1: Admin Authentication & User Provisioning (Customer 1, Customer 2, Agent, Merchant)
+![User Provisioning](screenshots/1.png)
+
+---
+
+### 3. Phase 2: User Account Activation & System Liquidity Deposit (৳5,000 to Agent)
+![Account Activation and System Deposit](screenshots/2.png)
+
+---
+
+### 4. Phase 3: Agent Authentication & Cash-In Deposit (৳2,000 to Customer 1 with Commission Assertion)
+![Agent Deposit and Commission Assertion](screenshots/3.png)
+
+---
+
+### 5. Phase 4: Customer 1 Authentication & P2P Send Money (৳1,000 to Customer 2 with Service Fee Assertion)
+![Customer 1 Send Money](screenshots/4.png)
+
+---
+
+### 6. Phase 4 (Cont.): Customer 2 Authentication, Cashout (৳500) & Merchant Payment (৳400)
+![Customer 2 Cashout and Merchant Payment](screenshots/5.png)
+
+---
+
+### 7. Phase 5: Negative Testing Scenarios & Error Validation
+![Negative Test Cases](screenshots/Negative%20test%20case%20ss.png)
 
 ---
 
