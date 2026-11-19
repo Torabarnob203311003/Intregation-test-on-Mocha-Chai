@@ -1,6 +1,6 @@
 # dMoney API Integration Testing Suite
 
-[![Mocha Tests](https://img.shields.io/badge/Mocha-24%20Passing-brightgreen?style=for-the-badge&logo=mocha)](https://mochajs.org/)
+[![Mocha Tests](https://img.shields.io/badge/Mocha-28%20Passing-brightgreen?style=for-the-badge&logo=mocha)](https://mochajs.org/)
 [![Chai Assertions](https://img.shields.io/badge/Chai-BDD%2FExpect-red?style=for-the-badge&logo=chai)](https://www.chaijs.com/)
 [![Axios HTTP](https://img.shields.io/badge/Axios-HTTP%20Client-purple?style=for-the-badge&logo=axios)](https://axios-http.com/)
 [![Node.js](https://img.shields.io/badge/Node.js-v24%2B-green?style=for-the-badge&logo=node.js)](https://nodejs.org/)
@@ -171,6 +171,12 @@ The suite comprises **24 granular integration tests** organized into five operat
 - `✔ 23. Customer 2 Cashout to Agent`: Customer 2 withdraws ৳500 through Agent. Asserts HTTP `201`, service `fee: 5`, and sender `currentBalance: 495`.
 - `✔ 24. Customer 2 Pay Merchant`: Customer 2 pays ৳400 to Merchant. Asserts HTTP `201`, service `fee: 5`, and sender `currentBalance: 90`.
 
+### Phase 5: Negative Testing Scenarios
+- `✔ 25. Negative Test: Admin Login with Incorrect Password`: Validates that invalid credentials return HTTP `401` with `Password incorrect`.
+- `✔ 26. Negative Test: Login Request with Missing Identifier`: Validates that omitting identifier returns HTTP `400` with descriptive error message.
+- `✔ 27. Negative Test: Create User without Authorization Token`: Validates that unauthorized requests return HTTP `401` with `No Token Found!`.
+- `✔ 28. Negative Test: Customer Send Money to Non-Existent Account`: Validates that transferring to invalid numbers returns HTTP `404` with `To Account does not exist`.
+
 ---
 
 ## ⚙️ Installation & Setup
@@ -257,16 +263,20 @@ npx mocha --timeout 30000 test/dmoney.spec.js
     ✔ 21. Search Customer 2 by ID - Retrieve generated OTP from Admin API (105ms)
     ✔ 22. Customer 2 Verify OTP - Complete 2FA and obtain Customer 2 token (84ms)
     ✔ 23. Customer 2 Cashout to Agent - Withdraw 500 BDT & Assert Service Fee (199ms)
-    ✔ 24. Customer 2 Pay Merchant - Payment of 400 BDT & Assert Deducted Fee (213ms)
+    ✔ 24. Customer 2 Pay Merchant - Payment of 400 BDT & Assert Deducted Fee
+    ✔ 25. Negative Test: Admin Login with Incorrect Password
+    ✔ 26. Negative Test: Login Request with Missing Identifier
+    ✔ 27. Negative Test: Create User without Authorization Token
+    ✔ 28. Negative Test: Customer Send Money to Non-Existent Account
 
-  24 passing (3s)
+  28 passing (189ms)
 ```
 
 ---
 
 ## 📷 Test Execution Evidence
 
-Below is the verified terminal execution report showing all 24 passing tests with status assertions and mathematical validations:
+Below is the verified terminal execution report showing all 28 passing tests (positive workflows + negative edge cases) with status assertions and mathematical validations:
 
 ![Test Execution Report](screenshots/test-execution.png)
 

@@ -504,4 +504,76 @@ describe("dMoney Financial Transaction Workflow - Integration Testing Suite", fu
     // Customer 2 remaining balance: 495 - 400 - 5 = 90 BDT
     expect(response.data.currentBalance).to.equal(90);
   });
+
+  // --- Phase 5: Negative Testing Scenarios ---
+
+  it("25. Negative Test: Admin Login with Incorrect Password", async () => {
+    const response = await axios.post(
+      `${BASE_URL}/user/login`,
+      {
+        email: "admin@dmoney.com",
+        password: "invalid_password_999",
+      },
+      { validateStatus: () => true }
+    );
+
+    console.log("Negative Admin Login Response:", response.data);
+    expect(response.status).to.equal(401);
+    expect(response.data.message).to.equal("Password incorrect");
+  });
+
+  it("26. Negative Test: Login Request with Missing Identifier", async () => {
+    const response = await axios.post(
+      `${BASE_URL}/user/login`,
+      {
+        password: "1234",
+      },
+      { validateStatus: () => true }
+    );
+
+    console.log("Negative Missing Identifier Response:", response.data);
+    expect(response.status).to.equal(400);
+    expect(response.data.message).to.include("Please provide either email or phone_number");
+  });
+
+  it("27. Negative Test: Create User without Authorization Token", async () => {
+    const response = await axios.post(
+      `${BASE_URL}/user/create`,
+      {
+        name: "Unauthorized User",
+        email: "unauthorized_test@gmail.com",
+        password: "1234",
+        phone_number: "01700000000",
+        nid: "1234567890",
+        role: "Customer",
+      },
+      { validateStatus: () => true }
+    );
+
+    console.log("Negative Unauthorized Creation Response:", response.data);
+    expect(response.status).to.equal(401);
+    expect(response.data.message).to.equal("No Token Found!");
+  });
+
+  it("28. Negative Test: Customer Send Money to Non-Existent Account", async () => {
+    const response = await axios.post(
+      `${BASE_URL}/transaction/sendmoney`,
+      {
+        from_account: customer1Phone,
+        to_account: "01900000000",
+        amount: 100,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${customer1Token}`,
+          "X-AUTH-SECRET-KEY": PARTNER_KEY,
+        },
+        validateStatus: () => true,
+      }
+    );
+
+    console.log("Negative Non-Existent Account Response:", response.data);
+    expect(response.status).to.equal(404);
+    expect(response.data.message).to.equal("To Account does not exist");
+  });
 });
