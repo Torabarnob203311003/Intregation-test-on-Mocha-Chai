@@ -8,7 +8,7 @@
 An automated end-to-end financial transaction integration testing project for the **dMoney** Mobile Financial Service (MFS) REST API platform using **Mocha**, **Chai**, **Axios**, and **dotenv**.
 
 ---
-
+<!-- 
 ## 📌 Table of Contents
 
 - [Project Overview](#-project-overview)
@@ -24,7 +24,7 @@ An automated end-to-end financial transaction integration testing project for th
 - [Submission Verification Checklist](#-submission-verification-checklist)
 - [Author & License](#-author--license)
 
----
+--- -->
 
 ## 📖 Project Overview
 
@@ -312,7 +312,7 @@ All test executions were executed against the dMoney API, achieving a 100% pass 
 ![Negative Test Cases](screenshots/Negative%20test%20case%20ss.png)
 
 ---
-
+<!-- 
 ## ✅ Submission Verification Checklist
 
 | # | Checklist Item | Status | Verified In Code |
@@ -337,7 +337,7 @@ All test executions were executed against the dMoney API, achieving a 100% pass 
 | 18 | Console output screenshot added to README | ✅ | `screenshots/test-execution.png` |
 | 19 | GitHub repository ready to be made public | ✅ | Clean structure, `.env.example`, no sensitive keys committed |
 
----
+--- -->
 
 ## 👨‍💻 Author
 
